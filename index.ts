@@ -73,7 +73,7 @@ const json2xls = async (main, population) => {
         });
         rowIndex++;
     });
-    wb.write('TeacherData.xlsx');
+    wb.write('output.xlsx');
 }
 
 
