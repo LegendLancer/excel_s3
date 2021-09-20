@@ -3,15 +3,15 @@ const node_xj = require("xls-to-json");
 const node_jx = require('excel4node');
 const port = process.env.PORT || 3000;
 
-const exampleAPI = (ids) => {
-    let populationData = {};
+const exampleAPI = (ids: any) => {
+    let populationData: any = {};
     for (let key in ids) {
         populationData[ids[key]] = "blabla";
     }
     return populationData;
 }
-let mainData = [], //main data from excel 
-    popData = {};  //population data
+let mainData: [] = [], //main data from excel 
+    popData: any = {};  //population data
 
 const xls2json = async () => await node_xj(
     {
@@ -21,11 +21,11 @@ const xls2json = async () => await node_xj(
         rowsToSkip: 0, // number of rows to skip at the top of the sheet; defaults to 0
         allowEmptyKey: false, // avoids empty keys in the output, example: {"": "something"}; default: true
     },
-    function (err, result) {
+    function (err: any, result: any) {
         if (err) {
         } else {
             mainData = result;
-            let ids = {}, index = 0;
+            let ids: any= {}, index:number = 0;
             for (let obj of result) {
                 ids[index++] = obj['Id'];
             }
@@ -37,7 +37,7 @@ const xls2json = async () => await node_xj(
     }
 );
 
-const json2xls = async (main, population) => {
+const json2xls = async (main: any, population: any) => {
     console.log(main, population);
     const result = [];
     for (let obj of main) {
@@ -78,7 +78,7 @@ const json2xls = async (main, population) => {
 
 
 
-const server = http.createServer((req, res) => {
+const server = http.createServer((req: any, res: any) => {
     console.log(popData);
     
     // process goes here
