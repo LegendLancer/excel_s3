@@ -4,12 +4,13 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "tsc index.ts && node index.js"
+        "start": "tsc index.ts && tsc Excel2JSON.ts && node index.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "convert-excel-to-json": "^1.7.0",
         "excel4node": "^1.7.2",
         "express": "^4.17.1",
         "supervisor": "^0.12.0",
