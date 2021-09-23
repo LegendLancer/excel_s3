@@ -17,14 +17,14 @@
 // module import
 const http = require('http');
 const fs = require('fs');
-import Excel2JSON from './Excel2Json';
+import CSV2JSON from './CSV2JSON';
 const port = process.env.PORT || 3001;
 
 // example usage of Excel2JSON class
-let converter = new Excel2JSON();
-converter.setFileName('./example.xls');
+let converter = new CSV2JSON();
+converter.setFileName('./myInputFile.csv');
 const result = converter.convert();
 console.log(result);
 
 // fetch one column
-console.log(converter.fetchOneColumn('A'));
+console.log(converter.fetchOneColumn('first_name'));

@@ -18,12 +18,12 @@ exports.__esModule = true;
 // module import
 var http = require('http');
 var fs = require('fs');
-var Excel2Json_1 = require("./Excel2Json");
+var CSV2JSON_1 = require("./CSV2JSON");
 var port = process.env.PORT || 3001;
 // example usage of Excel2JSON class
-var converter = new Excel2Json_1["default"]();
-converter.setFileName('./example.xls');
+var converter = new CSV2JSON_1["default"]();
+converter.setFileName('./myInputFile.csv');
 var result = converter.convert();
 console.log(result);
 // fetch one column
-console.log(converter.fetchOneColumn('A'));
+console.log(converter.fetchOneColumn('first_name'));
