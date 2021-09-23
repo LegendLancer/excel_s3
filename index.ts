@@ -22,9 +22,10 @@ const port = process.env.PORT || 3001;
 
 // example usage of Excel2JSON class
 let converter = new CSV2JSON();
-converter.setFileName('./myInputFile.csv');
-const result = converter.convert();
-console.log(result);
+converter.setCSV('Name,make,modle,id,capacity\nNanu ,Philip,g15,123,small\nNanu1,phlio,g16,224,midum');
+
+converter.convert().then(() => {
+    console.log(converter.fetchOneColumn('Name'));
+});
 
 // fetch one column
-console.log(converter.fetchOneColumn('first_name'));

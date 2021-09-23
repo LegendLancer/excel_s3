@@ -1,22 +1,23 @@
-const excelToJson = require('convert-excel-to-json');
-let csvToJson = require('convert-csv-to-json');
+var csvtojson = require("csvtojson");
 
 class CSV2JSON {
-    private filename: string = "";
-    private result: [] = [];
+    private csv: string = "";
+    public result: [] = [];
 
-    constructor(filename: string = "") {
-        this.filename = filename;
+    constructor(csv: string = "") {
+        this.csv = csv;
     }
 
-    setFileName(filename: string): void {
-        this.filename = filename;
+    setCSV(csv: string): void {
+        this.csv = csv;
     }
 
-    convert(): object {
-        const result:[] = csvToJson.parseSubArray('*',',').getJsonFromCsv(this.filename);
-        this.result = [...result];
-        return result;
+    async convert(): Promise<any>{
+        await csvtojson()
+        .fromString(this.csv)
+        .then((res:any) => {
+            this.result = res;
+        });        
     }
 
     fetchOneColumn(columnName: string): object {

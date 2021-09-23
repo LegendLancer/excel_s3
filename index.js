@@ -22,8 +22,8 @@ var CSV2JSON_1 = require("./CSV2JSON");
 var port = process.env.PORT || 3001;
 // example usage of Excel2JSON class
 var converter = new CSV2JSON_1["default"]();
-converter.setFileName('./myInputFile.csv');
-var result = converter.convert();
-console.log(result);
+converter.setCSV('Name,make,modle,id,capacity\nNanu ,Philip,g15,123,small\nNanu1,phlio,g16,224,midum');
+converter.convert().then(function () {
+    console.log(converter.fetchOneColumn('Name'));
+});
 // fetch one column
-console.log(converter.fetchOneColumn('first_name'));
