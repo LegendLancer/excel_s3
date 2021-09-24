@@ -58,17 +58,17 @@ var CSV2JSON = /** @class */ (function () {
     };
     CSV2JSON.prototype.convert = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, csvtojson()
-                            .fromString(this.csv)
-                            .then(function (res) {
-                            _this.result = res;
-                        })];
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        console.log('before convert: ', this.csv);
+                        _a = this;
+                        return [4 /*yield*/, csvtojson().fromString(this.csv)];
                     case 1:
-                        _a.sent();
-                        return [2 /*return*/];
+                        _a.result = _b.sent();
+                        console.log('convert: ', this.result);
+                        return [2 /*return*/, 'success'];
                 }
             });
         });

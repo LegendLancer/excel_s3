@@ -21,11 +21,14 @@ import CSV2JSON from './CSV2JSON';
 const port = process.env.PORT || 3001;
 
 // example usage of Excel2JSON class
-let converter = new CSV2JSON();
-converter.setCSV('Name,make,modle,id,capacity\nNanu ,Philip,g15,123,small\nNanu1,phlio,g16,224,midum');
+let converter = new CSV2JSON('Name,make,modle,id,capacity,\rNanu ,Philip,g15,123,small,\rNanu1,phlio,g16,224,midum');
+//converter.setCSV('Name,make,modle,id,capacity,\rNanu ,Philip,g15,123,small,\rNanu1,phlio,g16,224,midum');
 
-converter.convert().then(() => {
+const doProcess = async () => {
+    await converter.convert();
+    console.log('after convert: ', "aftr convert");
     console.log(converter.fetchOneColumn('Name'));
-});
+}
+doProcess();
 
 // fetch one column

@@ -13,13 +13,12 @@ class CSV2JSON {
     }
 
     async convert(): Promise<any>{
-        await csvtojson()
-        .fromString(this.csv)
-        .then((res:any) => {
-            this.result = res;
-        });        
+        console.log('before convert: ', this.csv);
+        this.result = await csvtojson().fromString(this.csv)
+        console.log('convert: ', this.result);
+        return 'success';
     }
-
+    
     fetchOneColumn(columnName: string): object {
         let result:any = {};
         const data:any = [...this.result];
